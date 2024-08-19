@@ -97,9 +97,6 @@ def main():
 def load_data(filename):
     """
     Load gene and trait data from a file into a dictionary.
-    File assumed to be a CSV containing fields name, mother, father, trait.
-    mother, father must both be blank, or both be valid names in the CSV.
-    trait should be 0 or 1 if trait is known, blank otherwise.
     """
     data = dict()
     with open(filename) as f:
@@ -146,13 +143,6 @@ def extra_mappings(people,one_gene,two_genes,have_trait):
 def joint_probability(people, one_gene, two_genes, have_trait):
     """
     Compute and return a joint probability.
-
-    The probability returned should be the probability that
-        * everyone in set `one_gene` has one copy of the gene, and
-        * everyone in set `two_genes` has two copies of the gene, and
-        * everyone not in `one_gene` or `two_gene` does not have the gene, and
-        * everyone in set `have_trait` has the trait, and
-        * everyone not in set` have_trait` does not have the trait.
     """
     gene_mapping,no_genes,no_trait = extra_mappings(people,one_gene,two_genes,have_trait)
     probability = 1
