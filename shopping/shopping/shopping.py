@@ -33,11 +33,6 @@ def main():
 
 def load_data(filename):
     """
-    Load shopping data from a CSV file `filename` and convert into a list of
-    evidence lists and a list of labels. Return a tuple (evidence, labels).
-
-    evidence should be a list of lists, where each list contains the
-    following values, in order:
         - Administrative, an integer
         - Administrative_Duration, a floating point number
         - Informational, an integer
@@ -56,8 +51,6 @@ def load_data(filename):
         - VisitorType, an integer 0 (not returning) or 1 (returning)
         - Weekend, an integer 0 (if false) or 1 (if true)
 
-    labels should be the corresponding list of labels, where each label
-    is 1 if Revenue is true, and 0 otherwise.
     """
     months = {"Jan":0,"Feb":1,"Mar":2,"Apr":3,"May":4,"June":5,"Jul":6,"Aug":7,"Sep":8,"Oct":9,"Nov":10,"Dec":11}
     labels = []
@@ -94,16 +87,6 @@ def evaluate(labels, predictions):
     """
     Given a list of actual labels and a list of predicted labels,
     return a tuple (sensitivity, specificity).
-
-    Assume each label is either a 1 (positive) or 0 (negative).
-
-    `sensitivity` should be a floating-point value from 0 to 1
-    representing the "true positive rate": the proportion of
-    actual positive labels that were accurately identified.
-
-    `specificity` should be a floating-point value from 0 to 1
-    representing the "true negative rate": the proportion of
-    actual negative labels that were accurately identified.
     """
     sensitivity = 0
     pos_total = 0
